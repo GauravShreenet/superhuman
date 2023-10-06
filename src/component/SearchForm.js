@@ -1,7 +1,9 @@
 
 import React from 'react'
+import { CardLayout } from './CardLayout'
 
 export const SearchForm = () => {
+
   return (
     <div className="shadow rounded-2 p-5 mt-5">
         <div className="row">
@@ -21,6 +23,7 @@ export const SearchForm = () => {
                 </div>
             </form>
             <div className="col-md mt-3 d-flex justify-content-center flex-wrap gap-5">
+                <CardLayout />
                 
             </div>
         </div>
