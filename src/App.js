@@ -1,4 +1,5 @@
 import './App.css';
+import { SearchForm } from './component/SearchForm';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         </div>
         <hr />
 
-        
+        <SearchForm />
       </div>
     </div>
   );
