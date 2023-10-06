@@ -1,4 +1,5 @@
 import './App.css';
+import { Display } from './component/Display';
 import { SearchForm } from './component/SearchForm';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <hr />
 
         <SearchForm />
+        <Display />
       </div>
     </div>
   );
