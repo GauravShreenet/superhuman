@@ -6,8 +6,9 @@ const accessToken = "2039640043063608"
 export const fetchCharacter = async (name) => {
     try {
         const response = await axios.get(`${apiUrl}${accessToken}/search/${name}`);
-        console.log(response.results)
-        return response.results;  
+        const datas = response.data.results
+        console.log(datas);
+        return datas;  
     }catch(error){
         console.log(error)
     }
