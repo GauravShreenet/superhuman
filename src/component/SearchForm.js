@@ -1,24 +1,24 @@
 
-import React, { useRef, useState } from 'react'
-import { CardLayout } from './CardLayout'
+import React, { useRef, useState } from 'react';
+import { CardLayout } from './CardLayout';
 import { fetchCharacter } from '../utils/axiosHelper';
 
 export const SearchForm = () => {
-    const [character, setCharacter] = useState({});
+    const [character, setCharacter] = useState([]); // Initialize as an empty array
     const strRef = useRef("");
     const [error, setError] = useState("")
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        setCharacter({});
+        setCharacter([]);
         setError("");
         const str = strRef.current.value;
 
         const data = await fetchCharacter(str);
-        console.log(data)
+        console.log("API Response:", data);
 
         if (data.Response === "True") {
-            setCharacter(data);
+            setCharacter(data.results); // Set data.results instead of data
         } else {
             setError(data.Error)
         }
@@ -43,8 +43,14 @@ export const SearchForm = () => {
                     </div>
                 </form>
                 <div className="col-md mt-3 d-flex justify-content-center flex-wrap gap-5">
-                    <CardLayout character={character} />
-
+                    {error && <div className='alert alert-danger'>
+                        {error}
+                    </div>}
+                    {character.length > 0 && (
+                        character.map((item, i) => {
+                            console.log("Character Data: ", item);
+                        return <CardLayout key={i} hero={item} />})
+                    )}
                 </div>
             </div>
         </div>

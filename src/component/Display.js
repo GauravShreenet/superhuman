@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardLayout } from './CardLayout'
+import { DetailComp } from './DetailComp'
 
 export const Display = () => {
     return (
@@ -7,23 +7,16 @@ export const Display = () => {
             <div className="row">
                 <div className="col">
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-primary">All</button>
-                        <button type="button" className="btn btn-success">Hero</button>
-                        <button type="button" className="btn btn-warning">Villain</button>
+                        <button type="button" className="btn btn-primary">Detail</button>
+                        <button type="button" className="btn btn-success">Connections</button>
+                        <button type="button" className="btn btn-warning">Powerstats</button>
                     </div>
                 </div>
             </div>
             <div className="row">
             <div className="col d-flex flex-wrap gap-3 mt-5">
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                <CardLayout />
-                </div>
+                <DetailComp />
+            </div>
             </div>
         </div>
     )
