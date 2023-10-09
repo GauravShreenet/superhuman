@@ -15,14 +15,16 @@ export const SearchForm = () => {
         const str = strRef.current.value;
 
         const data = await fetchCharacter(str);
-        console.log("API Response:", data);
+        // console.log("API Response:", data);
 
-        if (data.Response === "True") {
-            setCharacter(data.results); // Set data.results instead of data
+        if (data?.length > 0) {
+            setCharacter(data);
         } else {
             setError(data.Error)
         }
     }
+
+    console.log(character)
 
     return (
         <div className="shadow rounded-2 p-5 mt-5">
@@ -43,14 +45,13 @@ export const SearchForm = () => {
                     </div>
                 </form>
                 <div className="col-md mt-3 d-flex justify-content-center flex-wrap gap-5">
-                    {error && <div className='alert alert-danger'>
+                    {/* {error && <div className='alert alert-danger'>
                         {error}
-                    </div>}
+                    </div>} */}
                     {character.length > 0 && (
-                        character.map((item, i) => {
-                            console.log("Character Data: ", item);
-                        return <CardLayout key={i} hero={item} />})
+                        character.map((item, i) => <CardLayout key={i} hero={item} />)
                     )}
+                    {/* <CardLayout hero={character}/> */}
                 </div>
             </div>
         </div>

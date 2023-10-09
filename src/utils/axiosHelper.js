@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/"
+const apiUrl = "https://superheroapi.com/api/"
 const accessToken = "2039640043063608"
 
 export const fetchCharacter = async (name) => {
