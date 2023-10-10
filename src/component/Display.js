@@ -9,7 +9,7 @@ export const Display = () => {
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <button type="button" className="btn btn-primary">Detail</button>
                         <button type="button" className="btn btn-success">Connections</button>
-                        <button type="button" className="btn btn-warning">Powerstats</button>
+                        <button type="button" className="btn btn-warning">Power Stats</button>
                     </div>
                 </div>
             </div>
