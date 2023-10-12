@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { Display } from './component/Display';
 import { SearchForm } from './component/SearchForm';
+import { DarkMode } from './component/DarkMode';
 
 function App() {
   const [characterList, setCharacterList] = useState({});
@@ -16,6 +17,7 @@ function App() {
         <div className="row">
           <div className="col text-center mt-5">
             <h1>Know Your Comic Character</h1>
+            <DarkMode />
           </div>
         </div>
         <hr />
