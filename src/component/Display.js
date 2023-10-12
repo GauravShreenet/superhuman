@@ -18,7 +18,7 @@ export const Display = ({ characterList }) => {
             </div>
             <div className="row">
             <div className="col d-flex flex-wrap gap-3 mt-5">
-                <DetailComp />
+                <DetailComp  characterList={characterList}/>
             </div>
             </div>
         </div>

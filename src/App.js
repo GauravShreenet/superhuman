@@ -4,13 +4,10 @@ import { Display } from './component/Display';
 import { SearchForm } from './component/SearchForm';
 
 function App() {
-  const [characterList, setCharacterList] = useState([]);
+  const [characterList, setCharacterList] = useState({});
 
   const addToCharacterList = (character) => {
-    const noRepeat = characterList.filter((item) => item.id !== character.id)
-    setCharacterList([
-      ...noRepeat, character
-    ])
+    setCharacterList({character});
   }
 
   return (
