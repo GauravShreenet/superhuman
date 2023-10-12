@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const CardLayout = ({ hero, func }) => {
-    console.log("Hero Data: ", hero);
+    // console.log("Hero Data: ", hero);
 
     return (
         <div className="card" style={{ width: "18rem" }}>

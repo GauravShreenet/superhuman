@@ -20,23 +20,25 @@ export const SearchForm = ({ addToCharacterList }) => {
         if (data?.length > 0) {
             setCharacter(data);
         } else {
-            setError(data.Error)
+            setError("Character not found or typing mistake")
         }
     }
 
-    const func = (character, action) => {
-        if (action !== "delete") {
-            addToCharacterList({...character, action});
+    const func = (char, action) => {
+        if (action === "collect") {
+            addToCharacterList({...char, action});
             // setCharacter({})
             strRef.current.value="";
         }else{
-            addToCharacterList({});
+            const filteredList = character.filter((item) => item.id !== char.id)
+            console.log(filteredList)
+            setCharacter(filteredList);
             strRef.current.value="";
         }
     }
 
      console.log(character)
-     console.log(addToCharacterList)
+    //  console.log(addToCharacterList)
 
     return (
         <div className="shadow rounded-2 p-5 mt-5">
@@ -57,9 +59,9 @@ export const SearchForm = ({ addToCharacterList }) => {
                     </div>
                 </form>
                 <div className="col-md mt-3 d-flex justify-content-center flex-wrap gap-5">
-                    {/* {error && <div className='alert alert-danger'>
+                    {error && <div className='alert alert-danger'>
                         {error}
-                    </div>} */}
+                    </div>}
                     {character.length > 0 && (
                         character.map((item, i) => <CardLayout key={i} hero={item} func={func}/>)
                     )}
