@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CardLayout = ({ hero }) => {
+export const CardLayout = ({ hero, func }) => {
     console.log("Hero Data: ", hero);
 
     return (
@@ -13,11 +13,11 @@ export const CardLayout = ({ hero }) => {
             <div className="row flex">
                 <div className="col">
                     <div className="d-grid m-2">
-                        <button className="btn btn-primary">Collect</button>
+                        <button className="btn btn-primary" onClick={() => func('collect')}>Collect</button>
                     </div>
                     <div className="col">
                         <div className="d-grid m-2">
-                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-danger" onClick={() => func('delete')}>Delete</button>
                         </div>
                     </div>
                 </div>

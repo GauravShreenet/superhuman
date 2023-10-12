@@ -24,7 +24,17 @@ export const SearchForm = () => {
         }
     }
 
-    console.log(character)
+    const func = (character, action) => {
+        if (action !== "delete") {
+            setCharacter({...character, action});
+            strRef.current.value="";
+        }else{
+            setCharacter({});
+            strRef.current.value="";
+        }
+    }
+
+     console.log(character)
 
     return (
         <div className="shadow rounded-2 p-5 mt-5">
@@ -49,7 +59,7 @@ export const SearchForm = () => {
                         {error}
                     </div>} */}
                     {character.length > 0 && (
-                        character.map((item, i) => <CardLayout key={i} hero={item} />)
+                        character.map((item, i) => <CardLayout key={i} hero={item} func={func}/>)
                     )}
                     {/* <CardLayout hero={character}/> */}
                 </div>
