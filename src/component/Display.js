@@ -1,7 +1,10 @@
 import React from 'react'
 import { DetailComp } from './DetailComp'
 
-export const Display = () => {
+export const Display = ({ characterList }) => {
+
+    console.log(characterList)
+
     return (
         <div className="p-5 rounded shadow my-5">
             <div className="row">

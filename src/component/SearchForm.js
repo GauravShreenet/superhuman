@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { CardLayout } from './CardLayout';
 import { fetchCharacter } from '../utils/axiosHelper';
 
-export const SearchForm = () => {
+export const SearchForm = ({ addToCharacterList }) => {
     const [character, setCharacter] = useState([]); // Initialize as an empty array
     const strRef = useRef("");
     const [error, setError] = useState("")
@@ -26,15 +26,17 @@ export const SearchForm = () => {
 
     const func = (character, action) => {
         if (action !== "delete") {
-            setCharacter({...character, action});
+            addToCharacterList({...character, action});
+            // setCharacter({})
             strRef.current.value="";
         }else{
-            setCharacter({});
+            addToCharacterList({});
             strRef.current.value="";
         }
     }
 
      console.log(character)
+     console.log(addToCharacterList)
 
     return (
         <div className="shadow rounded-2 p-5 mt-5">

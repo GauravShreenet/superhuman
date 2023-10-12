@@ -1,8 +1,18 @@
+import { useState } from 'react';
 import './App.css';
 import { Display } from './component/Display';
 import { SearchForm } from './component/SearchForm';
 
 function App() {
+  const [characterList, setCharacterList] = useState([]);
+
+  const addToCharacterList = (character) => {
+    const noRepeat = characterList.filter((item) => item.id !== character.id)
+    setCharacterList([
+      ...noRepeat, character
+    ])
+  }
+
   return (
     <div className="wrapper">
       <div className="container">
@@ -13,8 +23,8 @@ function App() {
         </div>
         <hr />
 
-        <SearchForm />
-        <Display />
+        <SearchForm addToCharacterList={addToCharacterList}/>
+        <Display characterList={characterList}/>
       </div>
     </div>
   );
