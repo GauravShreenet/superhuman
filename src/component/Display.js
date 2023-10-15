@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DetailComp } from './DetailComp'
 
 export const Display = ({ characterList }) => {
+
+    const [selectCaterogry, setSelectCaterogry] = useState('detail');
+
+
 
     console.log(characterList)
 
@@ -10,15 +14,15 @@ export const Display = ({ characterList }) => {
             <div className="row">
                 <div className="col">
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-primary">Detail</button>
-                        <button type="button" className="btn btn-success">Connections</button>
-                        <button type="button" className="btn btn-warning">Power Stats</button>
+                        <button type="button" className="btn btn-primary" onClick={() => setSelectCaterogry('detail')}>Detail</button>
+                        <button type="button" className="btn btn-success" onClick={() => setSelectCaterogry('connections')}>Connections</button>
+                        <button type="button" className="btn btn-warning" onClick={() => setSelectCaterogry('powerStats')}>Power Stats</button>
                     </div>
                 </div>
             </div>
             <div className="row">
             <div className="col d-flex flex-wrap gap-3 mt-5">
-                <DetailComp  characterList={characterList}/>
+                <DetailComp  characterList={characterList} category={selectCaterogry}/>
             </div>
             </div>
         </div>
