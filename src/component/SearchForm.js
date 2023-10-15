@@ -65,7 +65,6 @@ export const SearchForm = ({ addToCharacterList }) => {
                     {character.length > 0 && (
                         character.map((item, i) => <CardLayout key={i} hero={item} func={func}/>)
                     )}
-                    {/* <CardLayout hero={character}/> */}
                 </div>
             </div>
         </div>

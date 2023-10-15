@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DetailComp } from './DetailComp'
 
 export const Display = ({ characterList }) => {
 
     const [selectCaterogry, setSelectCaterogry] = useState('detail');
-
-
 
     console.log(characterList)
 
@@ -22,7 +20,9 @@ export const Display = ({ characterList }) => {
             </div>
             <div className="row">
             <div className="col d-flex flex-wrap gap-3 mt-5">
-                <DetailComp  characterList={characterList} category={selectCaterogry}/>
+                {Object.keys(characterList).length > 0 && (
+                    <DetailComp  characterList={characterList} category={selectCaterogry}/>
+                )}
             </div>
             </div>
         </div>
